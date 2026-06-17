@@ -1,42 +1,54 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(page_title="Business Analytics Dashboard")
+
 st.title("📊 Business Analytics Dashboard")
 
-revenue = st.number_input(
-    "Monthly Revenue",
-    value=500000
-)
+revenue = 750000
+customers = 250
+profit = 180000
+leads = 400
 
-customers = st.number_input(
-    "Total Customers",
-    value=100
-)
+conversion_rate = (customers / leads) * 100
 
-leads = st.number_input(
-    "Total Leads",
-    value=250
-)
+col1,col2 = st.columns(2)
+col3,col4 = st.columns(2)
 
-conversion = (customers / leads) * 100
+col1.metric("Revenue", f"₹{revenue:,}")
+col2.metric("Customers", customers)
+col3.metric("Profit", f"₹{profit:,}")
+col4.metric("Conversion Rate", f"{conversion_rate:.2f}%")
 
-st.metric(
-    "Conversion Rate",
-    f"{conversion:.2f}%"
-)
-
-st.metric(
-    "Revenue",
-    f"₹{revenue:,.0f}"
-)
+st.divider()
 
 data = pd.DataFrame({
-    "Month": ["Jan","Feb","Mar","Apr","May"],
-    "Revenue": [4,5,6,7,8]
+    "Month":["Jan","Feb","Mar","Apr","May","Jun"],
+    "Revenue":[4,5,6,7,8,10],
+    "Customers":[50,70,80,100,120,150]
 })
 
+st.subheader("Revenue Trend")
 st.line_chart(
-    data.set_index("Month")
+    data.set_index("Month")["Revenue"]
 )
 
-st.success("Business KPIs Generated")
+st.subheader("Customer Growth")
+st.bar_chart(
+    data.set_index("Month")["Customers"]
+)
+
+st.subheader("Executive Insights")
+
+st.success("Best Month: June")
+st.warning("Lowest Revenue: January")
+st.info("Growth Trend: Positive")
+
+csv = data.to_csv(index=False)
+
+st.download_button(
+    "Download Analytics Report",
+    csv,
+    "business_report.csv",
+    "text/csv"
+)
