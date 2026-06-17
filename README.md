@@ -1,2 +1,18 @@
-# business-analytics-dashboard
-Business intelligence dashboard for KPI tracking, revenue analytics, conversion analysis and executive reporting.
+# Business Analytics Dashboard
+
+Business intelligence dashboard for KPI tracking and analytics.
+
+## Features
+
+- KPI Dashboard
+- Revenue Analytics
+- Conversion Tracking
+- Business Insights
+- Executive Reporting
+
+## Tech Stack
+
+- Python
+- Streamlit
+- Pandas
+- Plotly
