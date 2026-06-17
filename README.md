@@ -1,14 +1,14 @@
 # Business Analytics Dashboard
 
-Business intelligence dashboard for KPI tracking and analytics.
+Executive business intelligence dashboard for KPI monitoring and analytics.
 
 ## Features
 
-- KPI Dashboard
-- Revenue Analytics
-- Conversion Tracking
-- Business Insights
-- Executive Reporting
+- Revenue Tracking
+- Customer Analytics
+- Conversion Analysis
+- Executive Insights
+- Report Export
 
 ## Tech Stack
 
